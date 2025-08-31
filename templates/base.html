@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AzadiHub - {% block title %}آزادی اینترنت{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/globals.css' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    {% block extra_head %}{% endblock %}
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                fontFamily: {
+                    vazir: ['Vazirmatn', 'sans-serif'],
+                },
+                colors: {
+                    primary: '#4f46e5',
+                    secondary: '#1e293b',
+                    accent: '#f97316',
+                }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-bolt text-white text-2xl"></i>
+                    </div>
+                    <span class="mr-3 text-xl font-bold text-blue-600">AzadiHub</span>
+                </div>
+                <nav class="hidden md:flex space-x-2">
+                    <a href="{% url 'index' %}" class="px-4 py-2 font-medium hover:text-blue-600 transition">خانه</a>
+                    <a href="{% url 'configs' %}" class="px-4 py-2 font-medium hover:text-blue-600 transition">کانفیگ‌ها</a>
+                    <a href="{% url 'donation' %}" class="px-4 py-2 font-medium hover:text-blue-600 transition">دونیت</a>
+                </nav>
+                <div class="flex items-center">
+                    <button class="md:hidden ml-3 text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-bolt text-white"></i>
+                        </div>
+                        <span class="mr-3 text-xl font-bold">AzadiHub</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">ارائه کانفیگ‌های رایگان برای آزادی اینترنت با پشتیبانی از پروتکل‌های متنوع</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 className="text-lg font-bold mb-6">لینک‌های مفید</h4>
+                    <ul className="space-y-3">
+                        <li><a href="#" className="text-gray-400 hover:text-white transition">سوالات متداول</a></li>
+                        <li><a href="#" className="text-gray-400 hover:text-white transition">راهنمای استفاده</a></li>
+                        <li><a href="{% url 'donation' %}" className="text-gray-400 hover:text-white transition">حمایت مالی</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 className="text-lg font-bold mb-6">پروتکل‌ها</h4>
+                    <ul className="space-y-3">
+                        <li><a href="{% url 'configs' %}" className="text-gray-400 hover:text-white transition">vmess</a></li>
+                        <li><a href="{% url 'configs' %}" className="text-gray-400 hover:text-white transition">vless</a></li>
+                        <li><a href="{% url 'configs' %}" className="text-gray-400 hover:text-white transition">trojan</a></li>
+                        <li><a href="{% url 'configs' %}" className="text-gray-400 hover:text-white transition">ss</a></li>
+                        <li><a href="{% url 'configs' %}" className="text-gray-400 hover:text-white transition">ssr</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 className="text-lg font-bold mb-6">خبرنامه</h4>
+                    <p className="text-gray-400 mb-4">با عضویت در خبرنامه از آخرین به‌روزرسانی‌ها مطلع شوید</p>
+                    <form className="flex">
+                        <input type="email" placeholder="ایمیل شما" className="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800" />
+                        <button className="bg-blue-600 hover:bg-blue-700 px-4 rounded-r-lg">
+                            <i className="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div className="pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>تمامی حقوق برای AzadiHub محفوظ است © ۱۴۰۴</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

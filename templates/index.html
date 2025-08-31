@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}صفحه اصلی{% endblock %}
+
+{% block extra_head %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const options = {
+            strings: ['آزادی اینترنت', 'اتصال امن'],
+            typeSpeed: 60,
+            backSpeed: 40,
+            backDelay: 2000,
+            loop: true
+        };
+        const typed = new Typed('#typed-text', options);
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="hero-gradient text-white">
+    <div class="container mx-auto px-4 py-20 md:py-28">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 flex flex-wrap">
+                    <span class="block w-full mb-2">کانفیگ‌های رایگان برای</span>
+                    <span id="typed-text" class="text-yellow-300 whitespace-nowrap"></span>
+                </h1>
+                <p class="text-xl mb-8 opacity-90">با AzadiHub، به جدیدترین کانفیگ‌های VPN با پروتکل‌های متنوع دسترسی پیدا کنید</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="{% url 'configs' %}" class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-bold text-lg transition pulse-glow">
+                        مشاهده کانفیگ‌ها
+                    </a>
+                    <a href="{% url 'donation' %}" class="border-2 border-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-lg font-bold text-lg transition">
+                        حمایت از پروژه
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-blue-400 rounded-full opacity-20"></div>
+                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-green-400 rounded-full opacity-20"></div>
+                    <div class="relative bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl">
+                        <div class="text-center mb-6">
+                            <div class="text-5xl font-bold mb-2">{{ config_count }}</div>
+                            <div class="text-xl">کانفیگ فعال</div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <div class="text-2xl font-bold">5+</div>
+                                <div class="text-sm">پروتکل‌ها</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold">99.9%</div>
+                                <div class="text-sm">دسترسی‌پذیری</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold">24/7</div>
+                                <div class="text-sm">به‌روزرسانی</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="protocols" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">پروتکل‌های پشتیبانی‌شده</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">ما کانفیگ‌های متنوعی برای پروتکل‌های امن و پرسرعت ارائه می‌دهیم</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transition duration-300">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fas fa-shield-alt text-blue-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">VMess</h3>
+                <p class="text-gray-600 mb-4">پروتکل امن و انعطاف‌پذیر برای اتصال‌های پایدار</p>
+                <a href="{% url 'configs' %}" class="text-blue-600 font-medium flex items-center">
+                    مشاهده کانفیگ‌ها
+                    <i class="fas fa-arrow-left mr-2"></i>
+                </a>
+            </div>
+            <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transition duration-300">
+                <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fas fa-lock text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">VLESS</h3>
+                <p class="text-gray-600 mb-4">پروتکل سبک و مدرن با امنیت بالا</p>
+                <a href="{% url 'configs' %}" class="text-blue-600 font-medium flex items-center">
+                    مشاهده کانفیگ‌ها
+                    <i class="fas fa-arrow-left mr-2"></i>
+                </a>
+            </div>
+            <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transition duration-300">
+                <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fas fa-wifi text-purple-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Trojan</h3>
+                <p class="text-gray-600 mb-4">پروتکل قدرتمند با رمزنگاری پیشرفته</p>
+                <a href="{% url 'configs' %}" class="text-blue-600 font-medium flex items-center">
+                    مشاهده کانفیگ‌ها
+                    <i class="fas fa-arrow-left mr-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- بخش درباره ما -->
+<section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">درباره ما</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">AzadiHub یک پروژه متن‌باز برای ارائه کانفیگ‌های رایگان VPN است تا آزادی اینترنت را برای همه فراهم کند. ما بر روی پروتکل‌های امن تمرکز داریم و همیشه به‌روزرسانی می‌شویم.</p>
+        </div>
+    </div>
+</section>
+
+<!-- بخش نقشه راه -->
+<section id="roadmap" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">نقشه راه</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">برنامه‌های آینده ما</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transition duration-300">
+                <h3 class="text-xl font-bold mb-3">فاز 1: گسترش پروتکل‌ها</h3>
+                <p class="text-gray-600">اضافه کردن پروتکل‌های جدید مانند HY2 و TUIC تا پایان ۱۴۰۴.</p>
+            </div>
+            <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transition duration-300">
+                <h3 class="text-xl font-bold mb-3">فاز 2: اپ موبایل</h3>
+                <p class="text-gray-600">توسعه اپ موبایل برای دسترسی آسان به کانفیگ‌ها تا اوایل ۱۴۰۵.</p>
+            </div>
+            <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transition duration-300">
+                <h3 class="text-xl font-bold mb-3">فاز 3: جامعه کاربری</h3>
+                <p class="text-gray-600">ایجاد فروم برای کاربران تا پایان ۱۴۰۵.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

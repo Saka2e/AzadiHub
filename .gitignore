@@ -10,6 +10,7 @@ __pycache__/
 static/Base64/
 static/Splitted-By-Protocol/
 static/*.txt
+staticfiles/
 
 # Distribution / packaging
 .Python

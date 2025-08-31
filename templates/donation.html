@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}حمایت مالی{% endblock %}
+
+{% block content %}
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">حمایت از AzadiHub</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">با حمایت مالی، به ما کمک کنید تا کانفیگ‌های رایگان را به‌روزرسانی کنیم</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">  <!-- 4 کارت -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                <h3 class="text-xl font-bold mb-4">Bitcoin (BTC)</h3>
+                <pre class="text-sm bg-gray-100 p-4 rounded-lg">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</pre>
+                <button onclick="navigator.clipboard.writeText('bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh')" class="bg-blue-600 text-white px-4 py-2 rounded-lg mt-4">کپی آدرس</button>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                <h3 class="text-xl font-bold mb-4">Ethereum (ETH)</h3>
+                <pre class="text-sm bg-gray-100 p-4 rounded-lg">0x165CD37b4C644C2921454429E7F9358d18A45e14</pre>
+                <button onclick="navigator.clipboard.writeText('0x165CD37b4C644C2921454429E7F9358d18A45e14')" class="bg-blue-600 text-white px-4 py-2 rounded-lg mt-4">کپی آدرس</button>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                <h3 class="text-xl font-bold mb-4">Tron (TRX)</h3>
+                <pre class="text-sm bg-gray-100 p-4 rounded-lg">TXYZ... (آدرس نمونه، جایگزین کنید)</pre>
+                <button onclick="navigator.clipboard.writeText('TXYZ...')" class="bg-blue-600 text-white px-4 py-2 rounded-lg mt-4">کپی آدرس</button>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                <h3 class="text-xl font-bold mb-4">Toncoin (TON)</h3>
+                <pre class="text-sm bg-gray-100 p-4 rounded-lg">UQB... (آدرس نمونه، جایگزین کنید)</pre>
+                <button onclick="navigator.clipboard.writeText('UQB...')" class="bg-blue-600 text-white px-4 py-2 rounded-lg mt-4">کپی آدرس</button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

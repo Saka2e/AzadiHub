@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}لیست کانفیگ‌ها{% endblock %}
+
+{% block content %}
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">لیست کانفیگ‌ها</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">کانفیگ‌های به‌روز برای پروتکل‌های مختلف</p>
+        </div>
+        <!-- فیلتر پروتکل -->
+        <div class="mb-8">
+            <form method="GET" class="flex flex-wrap gap-4 justify-center">
+                <select name="protocol" class="px-4 py-2 border rounded-lg">
+                    <option value="">همه پروتکل‌ها</option>
+                    <option value="vmess" {% if protocol == 'vmess' %}selected{% endif %}>VMess</option>
+                    <option value="vless" {% if protocol == 'vless' %}selected{% endif %}>VLESS</option>
+                    <option value="trojan" {% if protocol == 'trojan' %}selected{% endif %}>Trojan</option>
+                    <option value="ss" {% if protocol == 'ss' %}selected{% endif %}>Shadowsocks</option>
+                    <option value="ssr" {% if protocol == 'ssr' %}selected{% endif %}>SSR</option>
+                </select>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg">فیلتر</button>
+            </form>
+        </div>
+        <!-- لیست کانفیگ‌ها -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">  <!-- تغییر به 3 کارت کنار هم -->
+            {% for config in configs %}
+            <div class="feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <h3 class="text-lg font-bold mb-2">{{ config.protocol | upper }}</h3>
+                <pre class="text-sm text-gray-600 bg-gray-100 p-4 rounded-lg overflow-x-auto">{{ config.config_text }}</pre>
+                <p class="text-sm text-gray-500 mt-2">آخرین به‌روزرسانی: {{ config.updated_at|date:"Y-d-m H:i" }}</p>
+                <button onclick="navigator.clipboard.writeText('{{ config.config_text }}')" class="bg-blue-600 text-white px-4 py-2 rounded-lg mt-4">کپی کانفیگ</button>  <!-- اضافه کردن دکمه کپی -->
+            </div>
+            {% empty %}
+            <p class="text-center text-gray-600">کانفیگی یافت نشد.</p>
+            {% endfor %}
+        </div>
+        <!-- صفحه‌بندی محدود (نمایش فقط 5 صفحه اطراف) -->
+        {% if configs.has_other_pages %}
+        <div class="mt-8 flex justify-center">
+            <nav class="inline-flex space-x-2">
+                {% if configs.has_previous %}
+                <a href="?page={{ configs.previous_page_number }}{% if protocol %}&protocol={{ protocol }}{% endif %}" class="px-4 py-2 bg-blue-600 text-white rounded-lg">قبلی</a>
+                {% endif %}
+                {% for num in configs.paginator.page_range %}
+                {% if num > configs.number|add:'-2' and num < configs.number|add:'3' %}  <!-- محدود به 5 صفحه اطراف -->
+                {% if configs.number == num %}
+                <span class="px-4 py-2 bg-blue-600 text-white rounded-lg">{{ num }}</span>
+                {% else %}
+                <a href="?page={{ num }}{% if protocol %}&protocol={{ protocol }}{% endif %}" class="px-4 py-2 bg-gray-200 rounded-lg">{{ num }}</a>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+                {% if configs.has_next %}
+                <a href="?page={{ configs.next_page_number }}{% if protocol %}&protocol={{ protocol }}{% endif %}" class="px-4 py-2 bg-blue-600 text-white rounded-lg">بعدی</a>
+                {% endif %}
+            </nav>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
