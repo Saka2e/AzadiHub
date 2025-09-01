@@ -3,6 +3,7 @@ import base64
 import requests
 import binascii
 import pybase64
+from tqdm import tqdm
 from django.conf import settings
 from crawler.models import Config
 
@@ -60,7 +61,7 @@ def filter_for_protocols(data, protocols):
     
     # Process each decoded content
     for content in data:
-        if content and content.strip():  # Skip empty content乞ادم content
+        if content and content.strip():  # Skip empty content
             lines = content.strip().split('\n')
             for line in lines:
                 line = line.strip()
@@ -151,12 +152,13 @@ def main():
     merged_configs = filter_for_protocols(combined_data, protocols)
     print(f"Found {len(merged_configs)} unique configs after filtering")
 
-    # Save to database
+    # Save to database with tqdm progress
     Config.objects.all().delete()  # Clear previous configs
-    for config in merged_configs:
-        if config.strip() and not config.startswith('#'):
-            protocol = config.split('://')[0]
-            Config.objects.create(protocol=protocol, config_text=config)
+    valid_configs = [config for config in merged_configs if config.strip() and not config.startswith('#')]
+    print("Saving configs to database...")
+    for config in tqdm(valid_configs):
+        protocol = config.split('://')[0]
+        Config.objects.create(protocol=protocol, config_text=config)
     print("Configs saved to database!")
 
     # Write merged configs to output file
