@@ -4,30 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>آزادی هاب - {% block title %}آزادی اینترنت{% endblock %}</title>
+    <title>آزادی‌هاب - {% block title %}آزادی اینترنت{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/globals.css' %}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     {% block extra_head %}{% endblock %}
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                fontFamily: {
-                    vazir: ['Vazirmatn', 'sans-serif'],
-                },
-                colors: {
-                    primary: '#4f46e5',
-                    secondary: '#1e293b',
-                    accent: '#f97316',
-                }
-                }
-            }
-        }
-    </script>
 </head>
-<body>
+<body class="bg-gray-900">
+    <!-- Header -->
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
@@ -35,13 +20,13 @@
                     <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
                         <i class="fas fa-bolt text-white text-2xl"></i>
                     </div>
-                    <span class="mr-3 text-xl font-bold text-blue-600">آزادی‌‌هاب</span>
+                    <span class="mr-3 text-xl font-bold text-blue-600">آزادی‌هاب</span>
                 </div>
                 <nav class="hidden md:flex space-x-2">
                     <a href="{% url 'index' %}" class="px-4 py-2 font-medium hover:text-blue-600 transition">خانه</a>
                     <a href="{% url 'configs' %}" class="px-4 py-2 font-medium hover:text-blue-600 transition">کانفیگ‌ها</a>
-                    <a href="{% url 'faq' %}" class="px-4 py-2 font-medium hover:text-blue-600 transition">سوالات متداول</a>
                     <a href="{% url 'donation' %}" class="px-4 py-2 font-medium hover:text-blue-600 transition">دونیت</a>
+                    <a href="{% url 'faq' %}" class="px-4 py-2 font-medium hover:text-blue-600 transition">سوالات متداول</a>
                 </nav>
                 <div class="flex items-center">
                     <button class="md:hidden ml-3 text-2xl">
@@ -52,34 +37,33 @@
         </div>
     </header>
 
+    <!-- بخش اصلی -->
     {% block content %}
     {% endblock %}
 
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"> <!-- تغییر به 3 ستون به دلیل حذف خبرنامه -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 <div>
                     <div class="flex items-center mb-6">
                         <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
                             <i class="fas fa-bolt text-white"></i>
                         </div>
-                        <span class="mr-3 text-xl font-bold">آزادی‌‌هاب</span>
+                        <span class="mr-3 text-xl font-bold">آزادی‌هاب</span>
                     </div>
                     <p class="text-gray-400 mb-6">ارائه کانفیگ‌های رایگان برای آزادی اینترنت با پشتیبانی از پروتکل‌های متنوع</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                        <a href="https://t.me/theherodev" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
                             <i class="fab fa-telegram"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
-                            <i class="fab fa-twitter"></i>
+                        <a href="https://github.com/RaitonRed/AzadiHub" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-github"></i>
                         </a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-2xl font-bold mb-6">لینک‌های مفید</h4> <!-- افزایش اندازه فونت -->
+                    <h4 class="text-2xl font-bold mb-6">لینک‌های مفید</h4>
                     <ul class="space-y-3">
                         <li><a href="{% url 'faq' %}" class="text-gray-400 hover:text-white transition">سوالات متداول</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">راهنمای استفاده</a></li>
@@ -87,22 +71,23 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-2xl font-bold mb-6">پروتکل‌ها</h4> <!-- افزایش اندازه فونت -->
+                    <h4 class="text-2xl font-bold mb-6">پروتکل‌ها</h4>
                     <ul class="space-y-3">
-                        <li><a href="{% url 'configs' %}" class="text-gray-400 hover:text-white transition">vmess</a></li>
-                        <li><a href="{% url 'configs' %}" class="text-gray-400 hover:text-white transition">vless</a></li>
-                        <li><a href="{% url 'configs' %}" class="text-gray-400 hover:text-white transition">trojan</a></li>
-                        <li><a href="{% url 'configs' %}" class="text-gray-400 hover:text-white transition">ss</a></li>
-                        <li><a href="{% url 'configs' %}" class="text-gray-400 hover:text-white transition">ssr</a></li>
+                        <li><a href="{% url 'configs' %}?protocol=vmess" class="text-gray-400 hover:text-white transition">VMess</a></li>
+                        <li><a href="{% url 'configs' %}?protocol=vless" class="text-gray-400 hover:text-white transition">VLESS</a></li>
+                        <li><a href="{% url 'configs' %}?protocol=trojan" class="text-gray-400 hover:text-white transition">Trojan</a></li>
+                        <li><a href="{% url 'configs' %}?protocol=ss" class="text-gray-400 hover:text-white transition">Shadowsocks</a></li>
+                        <li><a href="{% url 'configs' %}?protocol=ssr" class="text-gray-400 hover:text-white transition">SSR</a></li>
                     </ul>
                 </div>
             </div>
             <div class="pt-8 border-t border-gray-700 text-center text-gray-400">
-                <p>تمامی حقوق برای آزادی‌‌هاب محفوظ است © ۱۴۰۴</p>
+                <p>تمامی حقوق برای آزادی‌هاب محفوظ است © ۱۴۰۴</p>
             </div>
         </div>
     </footer>
 
+    <!-- اسکریپت اسکرول نرم -->
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
