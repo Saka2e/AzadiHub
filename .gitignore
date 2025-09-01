@@ -9,6 +9,7 @@ __pycache__/
 
 static/Base64/
 static/Splitted-By-Protocol/
+static/subscriptions/
 static/*.txt
 staticfiles/
 
