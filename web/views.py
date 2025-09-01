@@ -25,3 +25,6 @@ def configs(request):
 
 def donation(request):
     return render(request, 'donation.html')
+
+def faq(request):
+    return render(request, 'faq.html')
