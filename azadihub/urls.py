@@ -25,4 +25,5 @@ urlpatterns = [
     path('', index, name='index'),
     path('configs/', configs, name='configs'),
     path('donation/', donation, name='donation'),
+    path('faq/', faq, name='faq')
 ]
