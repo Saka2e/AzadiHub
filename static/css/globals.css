@@ -1,5 +1,5 @@
 @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+@import url('/fontawesome/css/all.min.css');
 /* @import "tailwindcss"; */
 @tailwind base;
 @tailwind components;
