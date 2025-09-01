@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}سوالات متداول{% endblock %}
+
+{% block content %}
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">سوالات متداول</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">پاسخ به سوالات رایج درباره استفاده از کانفیگ‌های AzadiHub</p>
+        </div>
+        <div class="max-w-3xl mx-auto space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <h3 class="text-xl font-bold mb-2">کانفیگ‌ها چیستند و چگونه کار می‌کنند؟</h3>
+                <p class="text-gray-600">کانفیگ‌ها تنظیمات سرور VPN هستند که برای اتصال امن به اینترنت استفاده می‌شوند. کافی است آنها را در کلاینت‌های VPN (مانند v2rayNG یا Outline) وارد کنید.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <h3 class="text-xl font-bold mb-2">چگونه کانفیگ‌ها را کپی کنم؟</h3>
+                <p class="text-gray-600">در صفحه کانفیگ‌ها، روی دکمه «کپی کانفیگ» کلیک کنید تا متن کانفیگ در کلیپ‌بورد ذخیره شود. سپس آن را در کلاینت VPN خود جای‌گذاری کنید.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <h3 class="text-xl font-bold mb-2">آیا کانفیگ‌ها امن هستند؟</h3>
+                <p class="text-gray-600">ما کانفیگ‌ها را از منابع معتبر جمع‌آوری می‌کنیم و به طور منظم به‌روزرسانی می‌کنیم. با این حال، همیشه از کلاینت‌های معتبر استفاده کنید.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <h3 class="text-xl font-bold mb-2">چگونه می‌توانم از پروژه حمایت کنم؟</h3>
+                <p class="text-gray-600">شما می‌توانید از طریق صفحه دونیت با ارزهای دیجیتال (بیت‌کوین، اتریوم، ترون، تون‌کوین) از پروژه حمایت کنید.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <h3 class="text-xl font-bold mb-2">چرا برخی کانفیگ‌ها کار نمی‌کنند؟</h3>
+                <p class="text-gray-600">ممکن است به دلیل محدودیت‌های شبکه یا انقضای کانفیگ باشد. لطفاً کانفیگ‌های جدید را امتحان کنید یا با ما تماس بگیرید.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
