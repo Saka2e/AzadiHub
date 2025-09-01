@@ -14,7 +14,7 @@ def configs(request):
         configs = Config.objects.all()
     
     # صفحه‌بندی: 20 کانفیگ در هر صفحه
-    paginator = Paginator(configs, 20)
+    paginator = Paginator(configs, 21)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     

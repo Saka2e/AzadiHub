@@ -26,18 +26,24 @@ html {
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-@keyframes pulse-glow {
-  0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
-  50% { box-shadow: 0 0 50px rgba(255, 255, 255, 0.9); }
-  100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
-}
-
+/*
 .pulse-glow {
   animation: pulse-glow 1.5s infinite;
 }
+*/
 
 .crypto-address {
   white-space: pre-wrap;
   word-break: break-all;
   overflow-x: hidden;
+}
+
+.hero-button:hover {
+  animation: pulse-glow 1.5s infinite;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+  50% { box-shadow: 0 0 50px rgba(255, 255, 255, 0.9); }
+  100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
 }
