@@ -35,3 +35,9 @@ html {
 .pulse-glow {
   animation: pulse-glow 1.5s infinite;
 }
+
+.crypto-address {
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-x: hidden;
+}
