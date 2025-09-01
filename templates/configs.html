@@ -7,9 +7,10 @@
 <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">لیست کانفیگ‌ها</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">کانفیگ‌های فعال</h2>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">کانفیگ‌های به‌روز برای پروتکل‌های مختلف</p>
         </div>
+        
         <!-- فیلتر پروتکل -->
         <div class="mb-8">
             <form method="GET" class="flex flex-wrap gap-4 justify-center">
@@ -21,44 +22,100 @@
                     <option value="ss" {% if protocol == 'ss' %}selected{% endif %}>Shadowsocks</option>
                     <option value="ssr" {% if protocol == 'ssr' %}selected{% endif %}>SSR</option>
                 </select>
-                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg">فیلتر</button>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-200">فیلتر</button>
             </form>
         </div>
+        
         <!-- لیست کانفیگ‌ها -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">  <!-- تغییر به 3 کارت کنار هم -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for config in configs %}
-            <div class="feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                <h3 class="text-lg font-bold mb-2">{{ config.protocol | upper }}</h3>
-                <pre class="text-sm text-gray-600 bg-gray-100 p-4 rounded-lg overflow-x-auto">{{ config.config_text }}</pre>
-                <p class="text-sm text-gray-500 mt-2">آخرین به‌روزرسانی: {{ config.updated_at|date:"Y-d-m H:i" }}</p>
-                <button onclick="navigator.clipboard.writeText('{{ config.config_text }}')" class="bg-blue-600 text-white px-4 py-2 rounded-lg mt-4">کپی کانفیگ</button>  <!-- اضافه کردن دکمه کپی -->
+            <div class="feature-card bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold">{{ config.protocol | upper }}</h3>
+                    <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">فعال</span>
+                </div>
+                
+                <div class="bg-gray-100 p-3 rounded-lg mb-4 relative">
+                    <code class="text-sm text-gray-800 break-words config-code" id="config-code-{{ forloop.counter }}">
+                        {{ config.config_text|truncatechars:80 }}
+                    </code>
+                    <div class="absolute top-2 left-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded">کانفیگ</div>
+                </div>
+                
+                <div class="flex justify-between items-center">
+                    <button class="copy-btn bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center"
+                            data-clipboard-text="{{ config.config_text }}">
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        کپی کن
+                    </button>
+                    <span class="text-xs text-gray-500">{{ config.updated_at|date:"Y/m/d" }}</span>
+                </div>
             </div>
             {% empty %}
-            <p class="text-center text-gray-600">کانفیگی یافت نشد.</p>
+            <p class="text-center text-gray-600 col-span-full">هیچ کانفیگی یافت نشد.</p>
             {% endfor %}
         </div>
+        
         <!-- صفحه‌بندی محدود (نمایش فقط 5 صفحه اطراف) -->
         {% if configs.has_other_pages %}
         <div class="mt-8 flex justify-center">
             <nav class="inline-flex space-x-2">
                 {% if configs.has_previous %}
-                <a href="?page={{ configs.previous_page_number }}{% if protocol %}&protocol={{ protocol }}{% endif %}" class="px-4 py-2 bg-blue-600 text-white rounded-lg">قبلی</a>
+                <a href="?page={{ configs.previous_page_number }}{% if protocol %}&protocol={{ protocol }}{% endif %}" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center">
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                    قبلی
+                </a>
                 {% endif %}
+                
                 {% for num in configs.paginator.page_range %}
                 {% if num > configs.number|add:'-2' and num < configs.number|add:'3' %}  <!-- محدود به 5 صفحه اطراف -->
                 {% if configs.number == num %}
                 <span class="px-4 py-2 bg-blue-600 text-white rounded-lg">{{ num }}</span>
                 {% else %}
-                <a href="?page={{ num }}{% if protocol %}&protocol={{ protocol }}{% endif %}" class="px-4 py-2 bg-gray-200 rounded-lg">{{ num }}</a>
+                <a href="?page={{ num }}{% if protocol %}&protocol={{ protocol }}{% endif %}" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-all duration-200">{{ num }}</a>
                 {% endif %}
                 {% endif %}
                 {% endfor %}
+                
                 {% if configs.has_next %}
-                <a href="?page={{ configs.next_page_number }}{% if protocol %}&protocol={{ protocol }}{% endif %}" class="px-4 py-2 bg-blue-600 text-white rounded-lg">بعدی</a>
+                <a href="?page={{ configs.next_page_number }}{% if protocol %}&protocol={{ protocol }}{% endif %}" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center">
+                    بعدی
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </a>
                 {% endif %}
             </nav>
         </div>
         {% endif %}
     </div>
 </section>
+
+<script>
+    document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const text = this.getAttribute('data-clipboard-text');
+            navigator.clipboard.writeText(text).then(() => {
+                Toastify({
+                    text: "کانفیگ با موفقیت کپی شد",
+                    duration: 3000,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "#4B5563",
+                    stopOnFocus: true,
+                    style: {
+                        borderRadius: '8px',
+                        fontFamily: 'Vazir, sans-serif'
+                    }
+                }).showToast();
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        });
+    });
+</script>
 {% endblock %}
