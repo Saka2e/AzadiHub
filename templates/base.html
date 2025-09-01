@@ -40,6 +40,7 @@
                 <nav class="hidden md:flex space-x-2">
                     <a href="{% url 'index' %}" class="px-4 py-2 font-medium hover:text-blue-600 transition">خانه</a>
                     <a href="{% url 'configs' %}" class="px-4 py-2 font-medium hover:text-blue-600 transition">کانفیگ‌ها</a>
+                    <a href="{% url 'faq' %}" class="px-4 py-2 font-medium hover:text-blue-600 transition">سوالات متداول</a>
                     <a href="{% url 'donation' %}" class="px-4 py-2 font-medium hover:text-blue-600 transition">دونیت</a>
                 </nav>
                 <div class="flex items-center">
@@ -80,7 +81,7 @@
                 <div>
                     <h4 class="text-2xl font-bold mb-6">لینک‌های مفید</h4> <!-- افزایش اندازه فونت -->
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">سوالات متداول</a></li>
+                        <li><a href="{% url 'faq' %}" class="text-gray-400 hover:text-white transition">سوالات متداول</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">راهنمای استفاده</a></li>
                         <li><a href="{% url 'donation' %}" class="text-gray-400 hover:text-white transition">حمایت مالی</a></li>
                     </ul>
