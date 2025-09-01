@@ -14,8 +14,6 @@ TIMEOUT = 15  # seconds
 fixed_text = """#profile-title: base64:8J+GkyBHaXRodWIgfCBCYXJyeS1mYXIg8J+ltw==
 #profile-update-interval: 1
 #subscription-userinfo: upload=29; download=12; total=10737418240000000; expire=2546249531
-#support-url: https://github.com/barry-far/V2ray-config
-#profile-web-page-url: https://github.com/barry-far/V2ray-config
 """
 
 # Base64 decoding function
@@ -76,7 +74,7 @@ def filter_for_protocols(data, protocols):
 
 # Create necessary directories if they don't exist
 def ensure_directories_exist():
-    output_folder = os.path.join(settings.BASE_DIR, 'static')
+    output_folder = os.path.join(settings.BASE_DIR, 'static', 'subscriptions')
     base64_folder = os.path.join(output_folder, 'Base64')
     protocol_folder = os.path.join(output_folder, 'Splitted-By-Protocol')
 
@@ -226,8 +224,6 @@ def main():
         custom_fixed_text = f"""#profile-title: base64:{encoded_title}
 #profile-update-interval: 1
 #subscription-userinfo: upload=29; download=12; total=10737418240000000; expire=2546249531
-#support-url: https://github.com/barry-far/V2ray-config
-#profile-web-page-url: https://github.com/barry-far/V2ray-config
 """
         input_filename = os.path.join(output_folder, f"Sub{i + 1}.txt")
         with open(input_filename, "w", encoding="utf-8") as f:
@@ -236,7 +232,7 @@ def main():
             end_index = min((i + 1) * max_lines_per_file, num_lines)
             for config in merged_configs[start_index:end_index]:
                 f.write(config + "\n")
-        print(f"Created: Sub{i + 1}.txt")
+        print(f"Created: {input_filename}")
 
         with open(input_filename, "r", encoding="utf-8") as input_file:
             config_data = input_file.read()
@@ -245,7 +241,7 @@ def main():
         with open(base64_output_filename, "w", encoding="utf-8") as output_file:
             encoded_config = base64.b64encode(config_data.encode()).decode()
             output_file.write(encoded_config)
-        print(f"Created: Sub{i + 1}_base64.txt")
+        print(f"Created: {base64_output_filename}")
 
     print(f"\nProcess completed successfully!")
     print(f"Total configs processed: {len(merged_configs)}")
